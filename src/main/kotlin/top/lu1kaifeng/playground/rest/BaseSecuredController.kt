@@ -7,6 +7,4 @@ abstract class BaseSecuredController(
 ) {
     @Autowired
     protected lateinit var securityContext: SecurityContext
-
-
 }

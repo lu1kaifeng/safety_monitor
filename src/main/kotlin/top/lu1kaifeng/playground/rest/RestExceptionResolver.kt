@@ -20,7 +20,7 @@ class RestExceptionResolver : AbstractHandlerExceptionResolver(){
         if(ex is RestException){
             response.contentType = "application/json"
             response.status = ex.status.value()
-            ObjectMapper().writeValue(response.writer,ex.body)
+            ObjectMapper().writeValue(response.writer,ex)
         }else{
             response.status = HttpStatus.INTERNAL_SERVER_ERROR.value()
             ex.printStackTrace(response.writer)

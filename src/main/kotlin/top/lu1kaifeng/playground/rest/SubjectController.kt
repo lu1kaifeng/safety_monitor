@@ -1,6 +1,7 @@
 package top.lu1kaifeng.playground.rest
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -11,7 +12,7 @@ class SubjectController @Autowired constructor(
 
     val subjectService: SubjectService
 ) : BaseSecuredController() {
-    @PostMapping("/login")
+    @GetMapping("/login")
     fun getPostPage(@RequestParam userName: String, @RequestParam password: String): String =
         subjectService.tokenCreate(userName, password)
 }
