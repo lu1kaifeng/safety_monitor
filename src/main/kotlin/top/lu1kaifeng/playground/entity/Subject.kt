@@ -1,6 +1,5 @@
 package top.lu1kaifeng.playground.entity
 
-import java.security.Principal
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
