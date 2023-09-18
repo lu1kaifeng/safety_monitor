@@ -21,7 +21,7 @@ class SubjectService @Autowired constructor(
 ) {
     private val tokenPattern = Pattern.compile("Bearer\\s(.*)")
     fun authenticationFunction(tokenHeader: String?): DecodedJWT? {
-        if(tokenHeader==null){
+        if (tokenHeader == null) {
             return null;
         }
         try {
@@ -57,5 +57,6 @@ class SubjectService @Autowired constructor(
             return null
         }
     }
-    fun findByIdOrNull(id : Long) = subjectRepo.findByIdOrNull(id)
+
+    fun findByIdOrNull(id: Long) = subjectRepo.findByIdOrNull(id)
 }

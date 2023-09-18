@@ -4,7 +4,6 @@ import com.auth0.jwt.interfaces.DecodedJWT
 import org.springframework.stereotype.Component
 import org.springframework.web.context.annotation.RequestScope
 import top.lu1kaifeng.playground.entity.Subject
-import top.lu1kaifeng.playground.except.InvalidTokenException
 import top.lu1kaifeng.playground.service.SubjectService
 import xyz.luchengeng.info.except.NotAuthorizedException
 import javax.servlet.http.HttpServletRequest

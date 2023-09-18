@@ -16,8 +16,11 @@ class SecurityHandlerInterceptor(private val securityContext: SecurityContext) :
         val path = request.requestURI.substring(request.contextPath.length)
         return when {
             "/login".antMatching(path) -> true
+            "/sendfromdevice".antMatching(path)->true
             "/post/**".antMatching(path) ->
-                if(securityContext.loggedIn) true else throw NotAuthorizedException("")
+                if (securityContext.loggedIn) true else throw NotAuthorizedException("")
+            "/temp/**".antMatching(path) ->
+                if (securityContext.loggedIn) true else throw NotAuthorizedException("")
             else -> throw NotAuthorizedException("")
         }
     }
