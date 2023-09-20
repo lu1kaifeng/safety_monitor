@@ -9,6 +9,7 @@ import javax.persistence.Id
 data class TemperatureDevice(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Int?,
     val nodeId: Int?,
     val dataId: Int,
     val caption: String,

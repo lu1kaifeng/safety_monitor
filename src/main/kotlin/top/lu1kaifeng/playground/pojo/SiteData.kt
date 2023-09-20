@@ -13,7 +13,7 @@ data class SiteData(
 
 
 ){
-    fun toEntities() =  data.map { TemperatureDevice(nodeid, dataId = it.id, caption = it.caption, dataValue = it.value, description = it.description,dateCreated = Date.from(
+    fun toEntities() =  data.map { TemperatureDevice(null,nodeid, dataId = it.id, caption = it.caption, dataValue = it.value, description = it.description,dateCreated = Date.from(
             Instant.now())) }
 
 }

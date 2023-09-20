@@ -21,11 +21,9 @@ class ApplicationStartUp @Autowired constructor(val subjectRepo: SubjectRepo, va
     override fun onApplicationEvent(event: ApplicationReadyEvent) {
         subjectRepo.save(Subject(null, "admin", "admin"))
         postRepo.save(Post(null, "asdas"))
-        temperatureDeviceRepo.save(TemperatureDevice(null,1,"penis",1.22,"big penis", Date.from(Instant.now())))
-        temperatureDeviceRepo.save(TemperatureDevice(null,2,"penis1",1.23,"big penis1", Date.from(Instant.now())))
-        temperatureDeviceRepo.save(TemperatureDevice(null,3,"penis2",1.42,"big penis2", Date.from(Instant.now())))
-        temperatureDeviceRepo.save(TemperatureDevice(null,4,"penis3",1.62,"big penis3", Date.from(Instant.now())))
-        // here your code ...
+        temperatureDeviceRepo.save(TemperatureDevice(null,1,1,"AirPressure",33.23,"", Date.from(Instant.now())))
+        temperatureDeviceRepo.save(TemperatureDevice(null,1,2,"Temperature",33.23,"", Date.from(Instant.now())))
+
         return
     }
 }

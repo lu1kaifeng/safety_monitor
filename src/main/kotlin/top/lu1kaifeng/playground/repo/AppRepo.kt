@@ -12,6 +12,7 @@ import top.lu1kaifeng.playground.entity.*
 @Repository
 interface TemperatureDeviceRepo : JpaRepository<TemperatureDevice, Int>{
     fun findAllByOrderByDateCreatedDesc(pageable: Pageable) : Page<TemperatureDevice>
+    fun findAllByCaptionOrderByDateCreatedDesc(caption: String, pageable: Pageable) : Page<TemperatureDevice>
 }
 
 @Repository

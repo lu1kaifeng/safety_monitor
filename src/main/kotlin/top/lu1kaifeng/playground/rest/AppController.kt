@@ -19,4 +19,8 @@ class TemperatureDeviceController @Autowired constructor(
     fun getEntries(@RequestParam length: Int):Page<TemperatureDevice>{
         return temperatureDeviceRepo.findAllByOrderByDateCreatedDesc(Pageable.ofSize(length).withPage(0))
     }
+    @GetMapping("/temp/page/byCaption")
+    fun getEntriesByCaption(@RequestParam length: Int,@RequestParam caption: String):Page<TemperatureDevice>{
+        return temperatureDeviceRepo.findAllByCaptionOrderByDateCreatedDesc(caption,Pageable.ofSize(length).withPage(0))
+    }
 }
