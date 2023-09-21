@@ -16,11 +16,11 @@ class TemperatureDeviceController @Autowired constructor(
     val temperatureDeviceRepo: TemperatureDeviceRepo
 ) : BaseSecuredController() {
     @GetMapping("/temp/page")
-    fun getEntries(@RequestParam length: Int):Page<TemperatureDevice>{
-        return temperatureDeviceRepo.findAllByOrderByDateCreatedDesc(Pageable.ofSize(length).withPage(0))
+    fun getEntries(@RequestParam length: Int,@RequestParam page: Int):Page<TemperatureDevice>{
+        return temperatureDeviceRepo.findAllByOrderByDateCreatedDesc(Pageable.ofSize(length).withPage(page))
     }
     @GetMapping("/temp/page/byCaption")
-    fun getEntriesByCaption(@RequestParam length: Int,@RequestParam caption: String):Page<TemperatureDevice>{
-        return temperatureDeviceRepo.findAllByCaptionOrderByDateCreatedDesc(caption,Pageable.ofSize(length).withPage(0))
+    fun getEntriesByCaption(@RequestParam length: Int,@RequestParam page: Int,@RequestParam caption: String):Page<TemperatureDevice>{
+        return temperatureDeviceRepo.findAllByCaptionOrderByDateCreatedDesc(caption,Pageable.ofSize(length).withPage(page))
     }
 }
