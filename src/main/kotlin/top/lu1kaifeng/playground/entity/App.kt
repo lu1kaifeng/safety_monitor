@@ -22,6 +22,7 @@ data class TemperatureDevice(
 data class WeightMeasurementDevice(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Int?,
     val nodeId: Int?,
     val dataId: Int,
     val caption: String,
@@ -35,6 +36,7 @@ data class WeightMeasurementDevice(
 data class SafetyInformation(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Int?,
     val nodeId: Int?,
     val eventName: String,
     val picPath: String,
@@ -47,6 +49,7 @@ data class SafetyInformation(
 data class DeviceAddress(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Int?,
     val nodeId: Int?,
     val address: String,
     val caption: String,
@@ -59,6 +62,7 @@ data class DeviceAddress(
 data class ManufacturerInfo(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Int?,
     val manufacturerId: Int?,
     val manufacturerName: String,
     val caption: String
