@@ -9,7 +9,7 @@ import javax.persistence.Id
 data class TemperatureDevice(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Int?,
+    val id: Long?,
     val nodeId: Int?,
     val dataId: Int,
     val caption: String,
@@ -22,7 +22,7 @@ data class TemperatureDevice(
 data class WeightMeasurementDevice(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Int?,
+    val id: Long?,
     val nodeId: Int?,
     val dataId: Int,
     val caption: String,
@@ -36,7 +36,7 @@ data class WeightMeasurementDevice(
 data class SafetyInformation(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Int?,
+    val id: Long?,
     val nodeId: Int?,
     val eventName: String,
     val picPath: String,
@@ -49,8 +49,9 @@ data class SafetyInformation(
 data class DeviceAddress(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Int?,
-    val nodeId: Int?,
+    val id: Long?,
+    val nodeId: Int,
+    val dataId: Int,
     val address: String,
     val caption: String,
     val description: String,
@@ -62,7 +63,7 @@ data class DeviceAddress(
 data class ManufacturerInfo(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Int?,
+    val id: Long?,
     val manufacturerId: Int?,
     val manufacturerName: String,
     val caption: String
