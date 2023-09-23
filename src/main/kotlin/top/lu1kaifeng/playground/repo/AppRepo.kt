@@ -10,19 +10,21 @@ import top.lu1kaifeng.playground.entity.*
 
 
 @Repository
-interface TemperatureDeviceRepo : JpaRepository<TemperatureDevice, Int>{
+interface TemperatureDeviceRepo : JpaRepository<TemperatureDevice, Long>{
     fun findAllByOrderByDateCreatedDesc(pageable: Pageable) : Page<TemperatureDevice>
     fun findAllByCaptionOrderByDateCreatedDesc(caption: String, pageable: Pageable) : Page<TemperatureDevice>
 }
 
 @Repository
-interface WeightMeasurementDeviceRepo : JpaRepository<WeightMeasurementDevice, Int>
+interface WeightMeasurementDeviceRepo : JpaRepository<WeightMeasurementDevice, Long>
 
 @Repository
-interface SafetyInformationRepo : JpaRepository<SafetyInformation, Int>
+interface SafetyInformationRepo : JpaRepository<SafetyInformation, Long>
 
 @Repository
-interface DeviceAddressRepo : JpaRepository<DeviceAddress, Int>
+interface DeviceAddressRepo : JpaRepository<DeviceAddress, Long>{
+    fun findAllByNodeIdAndDataId(nodeId:Int,dataId:Int):DeviceAddress
+}
 
 @Repository
-interface ManufacturerInfoRepo : JpaRepository<ManufacturerInfo, Int>
+interface ManufacturerInfoRepo : JpaRepository<ManufacturerInfo, Long>
