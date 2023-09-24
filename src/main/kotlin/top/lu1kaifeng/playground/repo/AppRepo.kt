@@ -3,7 +3,6 @@ package top.lu1kaifeng.playground.repo
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 import top.lu1kaifeng.playground.entity.*
 
@@ -23,7 +22,7 @@ interface SafetyInformationRepo : JpaRepository<SafetyInformation, Long>
 
 @Repository
 interface DeviceAddressRepo : JpaRepository<DeviceAddress, Long>{
-    fun findAllByNodeIdAndDataId(nodeId:Int,dataId:Int):DeviceAddress
+    fun findByNodeIdAndDataId(nodeId:Int, dataId:Int): DeviceAddress?
 }
 
 @Repository

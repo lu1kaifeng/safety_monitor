@@ -15,7 +15,6 @@ import top.lu1kaifeng.playground.entity.DeviceAddress
 import top.lu1kaifeng.playground.entity.TemperatureDevice
 import top.lu1kaifeng.playground.repo.DeviceAddressRepo
 import top.lu1kaifeng.playground.repo.TemperatureDeviceRepo
-import top.lu1kaifeng.playground.service.PostService
 
 @RestController
 class TemperatureDeviceController @Autowired constructor(
@@ -50,8 +49,13 @@ class DeviceAddressController @Autowired constructor(
         }
     }
     @GetMapping("/device")
-    fun getDevice(@RequestParam nodeId:Int,@RequestParam dataId: Int):DeviceAddress{
-        return deviceAddressRepo.findAllByNodeIdAndDataId(nodeId, dataId)
+    fun getDevice(@RequestParam nodeId:Int,@RequestParam dataId: Int):ResponseEntity<DeviceAddress>{
+        val result = deviceAddressRepo.findByNodeIdAndDataId(nodeId, dataId)
+        return if (result == null){
+            ResponseEntity.notFound().build()
+        }else{
+            ResponseEntity.ok(result)
+        }
     }
     @GetMapping("/device/all")
     fun getAllDevices():List<DeviceAddress>{
