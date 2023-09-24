@@ -11,19 +11,21 @@ import javax.servlet.http.HttpServletResponse
 
 @Component
 class RestExceptionResolver : AbstractHandlerExceptionResolver() {
+    init {
+        order = HIGHEST_PRECEDENCE
+    }
     override fun doResolveException(
         request: HttpServletRequest,
         response: HttpServletResponse,
         handler: Any?,
         ex: Exception
     ): ModelAndView {
+        response.contentType = "application/json"
         if (ex is RestException) {
-            response.contentType = "application/json"
             response.status = ex.status.value()
-            ObjectMapper().writeValue(response.writer, ex)
-        } else {
+        }else{
             response.status = HttpStatus.INTERNAL_SERVER_ERROR.value()
-            ex.printStackTrace(response.writer)
+            ObjectMapper().writeValue(response.writer,ex.message)
         }
         return ModelAndView()
     }
