@@ -27,3 +27,9 @@ interface DeviceAddressRepo : JpaRepository<DeviceAddress, Long>{
 
 @Repository
 interface ManufacturerInfoRepo : JpaRepository<ManufacturerInfo, Long>
+
+@Repository
+interface VehicleRecordRepo : JpaRepository<VehicleRecord, Long>{
+    fun findFirstByLicenseOrderByDateCreated(license: String): VehicleRecord?
+    fun findByLicenseOrderByDateCreated(license: String, pageable: Pageable): Page<VehicleRecord>
+}

@@ -12,6 +12,6 @@ class SubjectController @Autowired constructor(
     val subjectService: SubjectService
 ) : BaseSecuredController() {
     @GetMapping("/login")
-    fun getPostPage(@RequestParam userName: String, @RequestParam password: String): String =
+    fun login(@RequestParam userName: String, @RequestParam password: String): String =
         subjectService.tokenCreate(userName, password)
 }

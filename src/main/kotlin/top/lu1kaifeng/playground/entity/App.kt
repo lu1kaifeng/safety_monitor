@@ -68,3 +68,13 @@ data class ManufacturerInfo(
     val manufacturerName: String,
     val caption: String
 )
+@Entity
+data class VehicleRecord(
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long?,
+    val license: String,
+    val enterWeight: Float?,
+    val exitWeight: Double?,
+    val dateCreated: Date
+)

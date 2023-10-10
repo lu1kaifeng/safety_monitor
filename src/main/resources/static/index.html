@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no"
+		/>
+		<title>物联网应用</title>
+		<link
+			rel="stylesheet"
+			href="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/global.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/domain/stop-page/css/stop-page.css"
+		/>
+<link rel="icon" type="image/x-icon" href="fav.ico">
+	</head>
+
+	<body>
+		<div class="body">
+			<div class="stop-page">
+				<div class="sp-fir">
+					<div class="sp-w sp-noaccess">
+						<div class="spa-logo">
+							<img
+								src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/domain/stop-page/css/img/slice/Stop-page.svg"
+								alt=""
+							/>
+						</div>
+						<div class="spa-text">
+							<div class="spa-tit">物联网应用</div>
+							<div class="spa-desc">
+								 物联网连接万物
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sp-sec ">
+					<div class="sp-w sp-if">
+						<div class="if-common">
+							<div class="ifc">
+								<img src="iot.jpg" style="position: absolute;height:40%;
+    left: 50%;
+    transform: translateX(-50%);">
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="stop-footer">
+				<p class="sf-num"><a href="http://beian.miit.gov.cn">豫ICP备 2023023427 号</a></p>
+			</div>
+		</div>
+		<script
+			id="sdi_js"
+			aid="2019103118575411963"
+			type="text/javascript"
+			src="//3gimg.qq.com/webapp_scan/sdi/common/sdi_js_full_v2.js"
+		></script>
+		<script>
+			document.querySelectorAll("a").forEach(el => {
+				el.addEventListener("click", e => {
+					try {
+						let tag = e.currentTarget.dataset.sdi;
+						let psArr = tag.split("-");
+						let ptype = psArr[0];
+						let stype = psArr[1];
+						_sdi.stat({
+							ptype: ptype,
+							stype: stype
+						});
+					} catch (error) {}
+				});
+			});
+		</script>
+	</body>
+</html>
+<!--[if !IE]>|xGv00|8f85bc5ee2a463e0e5c16c474a6dd271<![endif]-->

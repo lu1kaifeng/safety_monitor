@@ -23,7 +23,7 @@ class SecurityHandlerInterceptor(private val securityContext: SecurityContext) :
                 if (securityContext.loggedIn) true else throw NotAuthorizedException("")
             "/device/**".antMatching(path) ->
                 if (securityContext.loggedIn) true else throw NotAuthorizedException("")
-            else -> throw NotAuthorizedException("")
+            else -> true
         }
     }
 

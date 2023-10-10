@@ -21,11 +21,11 @@ class TemperatureDeviceController @Autowired constructor(
     val temperatureDeviceRepo: TemperatureDeviceRepo
 ) : BaseSecuredController() {
     @GetMapping("/temp/page")
-    fun getEntries(@RequestParam length: Int,@RequestParam page: Int):Page<TemperatureDevice>{
+    fun getTemperatureDevices(@RequestParam length: Int,@RequestParam page: Int):Page<TemperatureDevice>{
         return temperatureDeviceRepo.findAllByOrderByDateCreatedDesc(Pageable.ofSize(length).withPage(page))
     }
     @GetMapping("/temp/page/byCaption")
-    fun getEntriesByCaption(@RequestParam length: Int,@RequestParam page: Int,@RequestParam caption: String):Page<TemperatureDevice>{
+    fun getTemperatureDevicesByCaption(@RequestParam length: Int,@RequestParam page: Int,@RequestParam caption: String):Page<TemperatureDevice>{
         return temperatureDeviceRepo.findAllByCaptionOrderByDateCreatedDesc(caption,Pageable.ofSize(length).withPage(page))
     }
 }
@@ -35,11 +35,11 @@ class DeviceAddressController @Autowired constructor(
     val deviceAddressRepo: DeviceAddressRepo
 ) : BaseSecuredController() {
     @PostMapping("/device")
-    fun postEntries(@RequestBody deviceAddress: DeviceAddress){
+    fun postDeviceAddresses(@RequestBody deviceAddress: DeviceAddress){
         deviceAddressRepo.save(deviceAddress)
     }
     @DeleteMapping("/device")
-    fun delEntries(@RequestParam id:Long): ResponseEntity<Void>{
+    fun delDeviceAddresses(@RequestParam id:Long): ResponseEntity<Void>{
         val result = deviceAddressRepo.findByIdOrNull(id)
         return if(result == null){
             ResponseEntity.notFound().build()

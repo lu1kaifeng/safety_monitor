@@ -21,6 +21,7 @@ class AESDecryptService(private val mySecretKey: SecretKey, private val initiali
         val ivSpec = IvParameterSpec(initializationVector)
         cipher.init(Cipher.DECRYPT_MODE, mySecretKey, ivSpec)
         val cipherText = cipher.doFinal(dataToDecrypt)
+        val hex = dataToDecrypt.joinToString(separator = "")  {eachByte -> "%02x".format(eachByte)  }
         return cipherText.decodeToString()
     }
 
