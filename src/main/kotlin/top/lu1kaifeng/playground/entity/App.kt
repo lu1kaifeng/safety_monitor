@@ -74,7 +74,7 @@ data class VehicleRecord(
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long?,
     val license: String,
-    val enterWeight: Float?,
+    val enterWeight: Double?,
     val exitWeight: Double?,
     val dateCreated: Date
 )
